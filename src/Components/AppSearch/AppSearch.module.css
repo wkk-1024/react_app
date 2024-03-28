@@ -1,0 +1,11 @@
+.content{
+    /*text-align: center;*/
+}
+.inputClass {
+    width: 690rem;
+    border-radius: 20rem;
+    margin: 40rem 0;
+    height: 50rem;
+    text-indent:20rem;
+    box-shadow: 0 0 10rem rgba(0,0,0,.2);
+}

@@ -1,0 +1,35 @@
+.goodsBox {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 30rem;
+}
+.boxContent {
+    padding-left: 30rem;
+    width: 460rem;
+}
+
+.boxTitle {
+    font-size: 30rem;
+    font-weight: 500;
+}
+.boxDesc {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    height: 100rem;
+    margin-top:10rem;
+    font-size: 24rem;
+    /*text-overflow: ellipsis;*/
+}
+.PriceBox {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rem;
+}
+.price {
+    font-size: 30rem;
+    font-weight: 800;
+}
+.num {
+    text-align: right;
+}

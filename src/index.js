@@ -6,7 +6,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // 适配移动端
-document.documentElement.style.fontSize = 100 / 750 + 'vm'
+document.documentElement.style.fontSize = 100 / 750 + 'vw'
 
 root.render(
   <React.StrictMode>
