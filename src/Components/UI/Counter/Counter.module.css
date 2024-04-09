@@ -1,0 +1,11 @@
+.content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.num {
+    font-size: 30rem;
+    padding: 0 10rem;
+    width: 70rem;
+    text-align: center;
+}

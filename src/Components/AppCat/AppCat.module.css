@@ -1,0 +1,38 @@
+.content {
+    position: relative;
+    height: 60rem;
+    background-color: blue;
+    border-radius: 40rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.catIcon {
+    position: absolute;
+    font-size: 60rem;
+    bottom: 0;
+    left: 0;
+}
+.redNum {
+    position: absolute;
+    background-color: #f56c6c;
+    border-radius: 20rem;
+    color: #fff;
+    display: inline-block;
+    font-size: 20rem;
+    height: 30rem;
+    line-height: 30rem;
+    padding:0 10rem;
+    text-align: center;
+    white-space: nowrap;
+    left: 40rem;
+}
+.amount {
+
+}
+.settlement {
+    height: 60rem;
+    background-color: red;
+    border-radius: 40rem;
+    width: 150rem;
+}
