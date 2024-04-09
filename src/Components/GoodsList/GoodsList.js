@@ -3,7 +3,7 @@ import classes from './GoodsList.module.css';
 import Counter from "../UI/Counter/Counter";
 
 const GoodsList = (props) => {
-  const {good_name, good_desc, good_price, good_num, good_id} = props.data
+  const {good_name, good_desc, good_price, good_id} = props.data
   return (
     <div className={classes.goodsBox}>
       <div className={'boxImg'}>
@@ -15,8 +15,7 @@ const GoodsList = (props) => {
         <div className={classes.PriceBox}>
           <p className={classes.price}>{good_price}</p>
           <span className={classes.num}><Counter reduceNum={props.reduceNum} addNum={props.addNum}
-                                                 amount={good_num} good_id={good_id}
-                                                 good_num={good_num}/></span>
+                                                 data={props.data}/></span>
         </div>
       </div>
     </div>

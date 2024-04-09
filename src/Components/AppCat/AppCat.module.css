@@ -1,11 +1,14 @@
 .content {
-    position: relative;
-    height: 60rem;
-    background-color: blue;
+    /*position: relative;*/
+    height: 80rem;
+    background-color: #666;
     border-radius: 40rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 690rem;
+    bottom: 40rem;
 }
 .catIcon {
     position: absolute;
@@ -28,11 +31,20 @@
     left: 40rem;
 }
 .amount {
-
+    padding-left: 80rem;
+    font-size: 30rem;
+    color: aliceblue;
+}
+.settlement,.amount {
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }
 .settlement {
-    height: 60rem;
-    background-color: red;
+    height: 80rem;
+    background-color: #ee0a24;
     border-radius: 40rem;
-    width: 150rem;
+    color: #ffffff;
+    width: 200rem;
+    font-size: 34rem;
 }

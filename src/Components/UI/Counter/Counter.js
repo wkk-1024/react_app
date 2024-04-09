@@ -4,16 +4,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCirclePlus,faCircleMinus} from "@fortawesome/free-solid-svg-icons";
 
 const Counter = (props) => {
-  // const [num, setNum] = useState(props.amount);
+  const {data} = props
+  console.log(props)
+
+  const onAdd = ()=>{
+    props.addNum(data);
+  }
+  const onSub = () => {
+    props.reduceNum(data);
+  }
   return (
     <div className={classes.content}>
-      {props.amount && props.amount !== 0 ?
+      {data.amount && data.amount !== 0 ?
         <>
-          <FontAwesomeIcon style={{color: "#FFD43B",}} onClick={()=>props.reduceNum(props.good_id,props.amount)} icon={faCircleMinus} />
-          <p className={classes.num}>{props.amount}</p>
+          <FontAwesomeIcon style={{color: "#FFD43B",}} onClick={onSub} icon={faCircleMinus} />
+          <p className={classes.num}>{data.amount}</p>
         </> : null
       }
-      <FontAwesomeIcon style={{color: "#FFD43B",}} onClick={()=>props.addNum(props.good_id,props.amount)} icon={faCirclePlus} />
+      <FontAwesomeIcon style={{color: "#FFD43B",}} onClick={onAdd} icon={faCirclePlus} />
+
     </div>
   );
 };

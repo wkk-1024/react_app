@@ -10,7 +10,7 @@ document.documentElement.style.fontSize = 100 / 750 + 'vw'
 
 root.render(
   <React.StrictMode>
-    <App />
+    <App/>
   </React.StrictMode>
 );
 

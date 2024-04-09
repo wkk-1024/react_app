@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css'
 import AppSearch from "./Components/AppSearch/AppSearch";
 import GoodsList from "./Components/GoodsList/GoodsList";
@@ -7,30 +7,9 @@ import AppCat from "./Components/AppCat/AppCat";
 
 
 const catData = {
-  "status": "success",
-  "message": "购物车数据获取成功",
-  "data": {
-    "cart_items": [
-      {
-        "id": 1,
-        "good_id": 1,
-        "good_name": "商品1",
-        "good_price": 100,
-        "good_desc": 2,
-        "total_price": 200
-      },
-      {
-        "id": 2,
-        "good_id": 1,
-        "good_name": "商品2",
-        "good_price": 100,
-        "good_desc": 2,
-        "total_price": 200
-      },
-    ],
-    "total_quantity": 3,
-    "total_price": 400
-  }
+  "cart_items": [],
+  "total_quantity": 0,
+  "total_price": 0
 }
 const App = (props) => {
 
@@ -40,50 +19,63 @@ const App = (props) => {
       "good_id": 1,
       "good_name": "Apple",
       "good_desc": "A fruit",
-      "good_num": 10,
-      "good_price": 1.2
+      "good_price": 1
     },
     {
       "good_id": 2,
       "good_name": "Banana",
       "good_desc": "Another fruit",
-      "good_num": 5,
-      "good_price": 0.8
+      "good_price": 2
     },
     {
       "good_id": 3,
       "good_name": "Carrot",
       "good_desc": "A vegetable",
-      "good_num": 15,
-      "good_price": 2.0
+      "good_price": 3
     }
   ]);
-  //修改商品数量
-  const addNum = (id, num) => {
-    console.log(id, num)
-    setGoodsData(prevState => {
-      return prevState.map(item => {
-        if (item.good_id === id) {
-          item.good_num = num + 1;
-        }
-        return item
-      });
-    });
-  }
-
-  const reduceNum = (id, num) => {
-    setGoodsData(prevState => {
-      return prevState.map(item => {
-        if (item.good_id === id) {
-          item.good_num = num - 1;
-        }
-        return item
-      });
-    });
-  }
-
+  console.log(goodsData)
   //购物车数据
-  const [catsData,setCatsData] = useState(catData)
+  const [catsData, setCatsData] = useState(catData)
+
+  //修改商品数量
+  const addNum = (data) => {
+    //浅拷贝修改数据后主数据也会随之修改
+    let newCat = {...catsData}
+
+    //判断是否第一次加入
+    if (newCat.cart_items.indexOf(data) === -1) {
+      //设置数量
+      data.amount = 1
+
+      newCat.cart_items.push(data)
+    } else {
+      data.amount += 1
+    }
+
+    newCat.total_quantity += 1
+    newCat.total_price += data.good_price
+
+    setCatsData(newCat)
+  }
+
+  const reduceNum = (data) => {
+    //浅拷贝修改数据后主数据也会随之修改
+    let newCat = {...catsData}
+
+    // 判断是否是最后一次减少
+    if (data.amount === 1){
+      newCat.cart_items.splice(newCat.cart_items.indexOf(data),1);
+      data.amount = 0
+    }else {
+      data.amount -= 1
+    }
+
+    newCat.total_quantity -= 1
+    newCat.total_price -= data.good_price
+
+    setCatsData(newCat)
+  }
 
   //处理数据
   const goodsList = goodsData.map(item => {
@@ -93,7 +85,7 @@ const App = (props) => {
     <div className={'app'}>
       <AppSearch/>
       {goodsList}
-      <AppCat/>
+      <AppCat catsData={catsData}/>
     </div>
   );
 };
